@@ -1,34 +1,29 @@
-
-
 #include <iostream>
-using namespace std;
+
 int main() {
-    long long int n;
-    cin>>n;
-    long long int sum = 0;
-    long long int j = 2;
-    if(n%2 == 0) {
-                for(long long int i = 1; i<=n; i = i+2){
-       sum = sum - i + j;
-       j = j+2;
-    }
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int index_to_remove = 2; // Index of the item to remove
 
-    cout<<sum<<endl;
-    }
-    else{
-                for(long long int i = 1; i<n; i = i+2){
-       sum = sum - i + j;
-       j = j+2;
-    }
-    sum = sum -n;
-     cout<<sum<<endl;
+    if (index_to_remove >= 0 && index_to_remove < size) {
+        for (int i = index_to_remove; i < size - 1; i++) {
+            arr[i] = arr[i + 1]; // Shift elements to the left
+        }
+        size--; // Reduce the size of the array
 
-    }
+        // Print the updated array
+        for (int i = 0; i < size; ++i) {
+            std::cout << arr[i] << " ";
+        }
 
+
+        std::cout << std::endl;
+        int size2 = sizeof(arr) / sizeof(arr[0]);
+
+         std::cout<<size2 << std::endl;
+    } else {
+        std::cout << "Invalid index to remove." << std::endl;
+    }
 
     return 0;
-
 }
-
-
-
